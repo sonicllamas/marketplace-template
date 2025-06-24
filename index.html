@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Llamas DeFi Hub - Sonic Mainnet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+    /* Custom Scrollbar Styles */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #1A4331; /* brand-surface */
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #526A5F; /* themed thumb color */
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #6B8378; /* themed thumb hover color */
+    }
+    /* For Firefox */
+    .custom-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: #526A5F #1A4331;
+    }
+
+    /* Loading animation */
+    .loading-spinner {
+      border: 3px solid #1A4331;
+      border-top: 3px solid #6EE7B7;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Gradient backgrounds for enhanced visual appeal */
+    .gradient-bg {
+      background: linear-gradient(135deg, #102A1E 0%, #1A4331 100%);
+    }
+
+    .gradient-card {
+      background: linear-gradient(135deg, #1A4331 0%, #204F3C 100%);
+    }
+
+    /* Glow effects for interactive elements */
+    .glow-primary {
+      box-shadow: 0 0 20px rgba(110, 231, 183, 0.3);
+    }
+
+    .glow-secondary {
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    }
+
+    /* Custom focus styles */
+    .focus-brand:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.5);
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-bg': '#102A1E',            // Very Dark Desaturated Green
+            'brand-surface': '#1A4331',       // Dark Green
+            'brand-surface-alt': '#204F3C',   // Slightly Lighter Dark Green (for nested elements)
+            'brand-primary': '#6EE7B7',       // Light, Vibrant Mint/Green
+            'brand-primary-hover': '#4AAE88', // Darker Mint/Green
+            'brand-secondary': '#FBBF24',     // Amber/Gold
+            'brand-secondary-hover': '#F59E0B',// Darker Amber
+            'brand-lime': '#39FF14',          // Classic Bright Green (use as accent)
+            'brand-light-lime': '#A7F3D0',    // Lighter Mint (for text/highlights)
+            // Enhanced gray scale for better contrast
+            'gray-900': '#111827',
+            'gray-800': '#1F2937',
+            'gray-700': '#374151',
+            'gray-600': '#4B5563',
+            'gray-500': '#6B7280',
+            'gray-400': '#9CA3AF',
+            'gray-300': '#D1D5DB',
+            'gray-200': '#E5E7EB',
+            'gray-100': '#F3F4F6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            orbitron: ['Orbitron', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 2s infinite',
+            'spin-slow': 'spin 3s linear infinite',
+          },
+          backdropBlur: {
+            xs: '2px',
+          },
+        }
+      }
+    }
+  </script>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@^19.1.0",
+      "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+      "react/": "https://esm.sh/react@^19.1.0/",
+      "ethers": "https://esm.sh/ethers@^6.14.4"
+    }
+  }
+  </script>
+  <!-- Favicon and meta tags for better SEO -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦙</text></svg>">
+  <meta name="description" content="Llamas DeFi Hub - Your all-in-one DeFi platform on Sonic Mainnet for token swaps, NFT staking, and liquidity provision.">
+  <meta name="keywords" content="DeFi, Sonic, Llamas, NFT, Staking, Swap, Liquidity, Blockchain">
+  <meta name="author" content="Llamas DeFi Hub">
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:title" content="Llamas DeFi Hub - Sonic Mainnet">
+  <meta property="og:description" content="Your all-in-one DeFi platform on Sonic Mainnet">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://i.imgur.com/JAN65Kz.png">
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Llamas DeFi Hub - Sonic Mainnet">
+  <meta name="twitter:description" content="Your all-in-one DeFi platform on Sonic Mainnet">
+  <meta name="twitter:image" content="https://i.imgur.com/JAN65Kz.png">
+</head>
+<body class="bg-brand-bg gradient-bg min-h-screen">
+  <!-- Loading screen -->
+  <div id="loading-screen" class="fixed inset-0 bg-brand-bg gradient-bg flex items-center justify-center z-50">
+    <div class="text-center">
+      <div class="loading-spinner mx-auto mb-4"></div>
+      <h1 class="text-2xl font-orbitron font-bold text-brand-primary mb-2">Llamas DeFi Hub</h1>
+      <p class="text-brand-light-lime">Loading Sonic Mainnet...</p>
+    </div>
+  </div>
+
+  <!-- Main app container -->
+  <div id="root" class="hidden"></div>
+
+  <!-- Error boundary fallback -->
+  <div id="error-fallback" class="hidden fixed inset-0 bg-brand-bg gradient-bg flex items-center justify-center z-50">
+    <div class="text-center max-w-md mx-auto p-6">
+      <div class="text-6xl mb-4">🦙</div>
+      <h1 class="text-2xl font-orbitron font-bold text-brand-primary mb-4">Oops! Something went wrong</h1>
+      <p class="text-brand-light-lime mb-6">The Llamas encountered an unexpected error. Please refresh the page to try again.</p>
+      <button 
+        onclick="window.location.reload()" 
+        class="bg-brand-primary hover:bg-brand-primary-hover text-brand-bg font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+      >
+        Refresh Page
+      </button>
+    </div>
+  </div>
+
+  <script type="module">
+  // Show loading screen initially
+  document.getElementById('loading-screen').classList.remove('hidden');
+  
+  // Import and initialize the app
+  import('./index.tsx').then(() => {
+    console.log('🦙 Llamas Hub modules loaded successfully');
+  }).catch(error => {
+    console.error('Failed to load Llamas Hub application:', error);
+    // Show error fallback
+    document.getElementById('loading-screen').classList.add('hidden');
+    document.getElementById('error-fallback').classList.remove('hidden');
+  });
+</script>
+</body>
+</html>

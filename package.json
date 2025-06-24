@@ -1,34 +1,37 @@
 {
-  "name": "marketplace-template",
+  "name": "sonic-llamas-hub",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.1.1",
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@chakra-ui/theme-tools": "^2.1.2",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@tanstack/react-query": "^5.44.0",
-    "blo": "^1.2.0",
-    "framer-motion": "^11.2.10",
-    "next": "14.2.4",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-toast": "^1.1.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "ethers": "latest",
+    "lucide-react": "^0.454.0",
+    "next": "14.2.16",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.2.1",
-    "thirdweb": "^5.75.0"
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0",
+    "postcss": "^8.5",
+    "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
 }
